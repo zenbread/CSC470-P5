@@ -20,14 +20,17 @@ namespace P5
             do
             {
                 res = formLogin.ShowDialog();
-                appUser = formLogin.ReturnUser;
                 if (res != DialogResult.OK)
                 {
+                    formLogin.Dispose();
                     this.Close();
                     break;
+
                 }
+                appUser = formLogin.ReturnUser;
+
             }
-            while (!appUser.isAuthenticated && res == DialogResult.OK);
+            while (res == DialogResult.OK && !appUser.isAuthenticated);
 
             SetText();
         }

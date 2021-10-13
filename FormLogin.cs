@@ -22,6 +22,7 @@ namespace P5
         private void FormLogin_Load(object sender, EventArgs e)
         {
             CenterToParent();
+
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -40,19 +41,19 @@ namespace P5
             if (!auth)
             {
                 MessageBox.Show("Incorrect Username or Password.", "Attention");
-                this.Close();
+                return;
             }
 
             repo.SetAuthentication(user, true);
             this.ReturnUser = repo.GetByUserName(user);
-            this.DialogResult = DialogResult.OK;
+            DialogResult = DialogResult.OK;
             this.Close();
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
     }
 }

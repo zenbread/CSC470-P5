@@ -12,8 +12,8 @@ namespace P5
             {
                 Users = new Dictionary<string, AppUser>();
                 AppUser user1 = new AppUser(
-                    "User1234",
-                    "password1",
+                    "admin",
+                    "admin",
                     "Steve",
                     "Davies",
                     "Steve1234@aol.com",
