@@ -62,6 +62,7 @@
     </Compile>
     <Compile Include="IAppUserRepository.cs" />
     <Compile Include="IPreferenceRepository.cs" />
+    <Compile Include="IProjectRepository.cs" />
     <Compile Include="Preference.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Project.cs" />
