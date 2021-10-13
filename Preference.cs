@@ -4,12 +4,12 @@
     {
         public Preference(string username, string name, string value)
         {
-            Username = username;
+            UserName = username;
             Name = name;
             Value = value;
         }
 
-        public string Username { get; }
+        public string UserName { get; }
         public string Name { get; }
         public string Value { get; }
     }
