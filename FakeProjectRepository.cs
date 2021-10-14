@@ -7,11 +7,11 @@ namespace P5
         private static List<Project> projects;
         private static int counter = 0;
 
-        public const string NO_ERROR = "OK";
-        public const string MODIFIED_PROJECT_ID_ERROR = "IDError";
-        public const string DUPLICATE_PROJECT_NAME_ERROR = "NameError";
-        public const string NO_PROJECT_FOUND_ERROR = "ProjError";
-        public const string EMPTY_PROJECT_NAME_ERROR = "Empty";
+        public const string NO_ERROR = "";
+        public const string MODIFIED_PROJECT_ID_ERROR = "Can not modify the project id.";
+        public const string DUPLICATE_PROJECT_NAME_ERROR = "Project name already exists.";
+        public const string NO_PROJECT_FOUND_ERROR = "No project found.";
+        public const string EMPTY_PROJECT_NAME_ERROR = "Project name is empty or blank.";
 
 
         public FakeProjectRepository()

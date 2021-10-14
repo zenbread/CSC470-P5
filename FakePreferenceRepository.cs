@@ -7,7 +7,6 @@ namespace P5
         public const string PREFERENCE_PROJECT_ID = "Project_Id";
         public const string PREFERENCE_PROJECT_NAME = "Project_Name";
         private const string NO_ERROR = "";
-        private const string EMPTY_ERROR = "EMPTY";
         private static Dictionary<string, Dictionary<string, string>> preferences = new Dictionary<string, Dictionary<string, string>>();
         string IPreferenceRepository.GetPreference(string UserName, string PreferenceName)
         {
@@ -22,8 +21,6 @@ namespace P5
 
         string IPreferenceRepository.SetPreference(string UserName, string PreferenceName, string Value)
         {
-            if (string.IsNullOrEmpty(UserName) || string.IsNullOrEmpty(PreferenceName) || string.IsNullOrEmpty(Value))
-                return EMPTY_ERROR;
             Dictionary<string, string> NameValuePair;
             if (!preferences.TryGetValue(UserName, out NameValuePair))
             {
