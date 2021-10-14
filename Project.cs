@@ -2,6 +2,10 @@
 {
     class Project
     {
+        public Project(string name)
+        {
+            Name = name;
+        }
 
         public Project(int id, string name)
         {
@@ -9,7 +13,7 @@
             Name = name;
         }
 
-        public int Id { get; }
-        public string Name { get; }
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }
