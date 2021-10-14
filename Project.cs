@@ -1,6 +1,6 @@
 ﻿namespace P5
 {
-    class Project
+    public class Project
     {
         public Project(string name)
         {
@@ -15,5 +15,10 @@
 
         public int Id { get; set; }
         public string Name { get; set; }
+
+        public override string ToString()
+        {
+            return $"{this.Id} - {this.Name}";
+        }
     }
 }

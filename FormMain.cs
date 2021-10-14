@@ -5,6 +5,8 @@ namespace P5
 {
     public partial class FormMain : Form
     {
+        private AppUser appUser;
+        private Project project;
         public FormMain()
         {
             InitializeComponent();
@@ -13,9 +15,16 @@ namespace P5
         private void FormMain_Load(object sender, EventArgs e)
         {
             CenterToScreen();
+            appUser = login();
+            project = projectSelect();
+
+            SetText();
+        }
+
+        private AppUser login()
+        {
             FormLogin formLogin = new FormLogin();
             DialogResult res;
-            AppUser appUser;
 
             do
             {
@@ -27,18 +36,43 @@ namespace P5
                     break;
 
                 }
-                appUser = formLogin.ReturnUser;
-
             }
-            while (res == DialogResult.OK && !appUser.isAuthenticated);
+            while (res == DialogResult.OK && !formLogin.ReturnUser.isAuthenticated);
 
-            SetText();
+            return formLogin.ReturnUser;
+        }
+
+        private Project projectSelect()
+        {
+            FormSelectProject formSelect = new FormSelectProject();
+            DialogResult res;
+
+            do
+            {
+                res = formSelect.ShowDialog();
+                if (res != DialogResult.OK)
+                {
+                    formSelect.Dispose();
+                    this.Close();
+                    break;
+
+                }
+            }
+            while (res == DialogResult.OK && formSelect.ReturnProject == null);
+
+            return formSelect.ReturnProject;
+
         }
 
         private void SetText()
         {
-            Text = "Main - No Project Selected";
+            Text = $"Main - {project.Name}";
         }
 
+        private void selectProjectMenu_Click(object sender, EventArgs e)
+        {
+            project = projectSelect();
+            SetText();
+        }
     }
 }
