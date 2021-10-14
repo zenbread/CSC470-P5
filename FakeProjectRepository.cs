@@ -5,7 +5,7 @@ namespace P5
     public class FakeProjectRepository : IProjectRepository
     {
         private static List<Project> projects;
-        private static int counter = 0;
+        private static int counter = 1;
 
         public const string NO_ERROR = "";
         public const string MODIFIED_PROJECT_ID_ERROR = "Can not modify the project id.";
@@ -18,6 +18,7 @@ namespace P5
         {
             if (projects == null)
             {
+                projects = new List<Project>();
                 string[] ProjectNames = {
                     "Big Project 1",
                     "Big Project 2",
@@ -26,19 +27,20 @@ namespace P5
 
                 foreach (string name in ProjectNames)
                 {
-                    projects.Add(new Project(GetNextId(), name));
+                    Project tmp = new Project(GetNextId(), name);
+                    projects.Add(tmp);
                 }
             }
         }
 
-        string IProjectRepository.Add(Project project, out int Id)
+        public string Add(Project project, out int Id)
         {
             Id = -1;
             if (string.IsNullOrEmpty(project.Name))
             {
                 return EMPTY_PROJECT_NAME_ERROR;
             }
-            else if (((IProjectRepository)this).IsDuplicateName(project.Name))
+            else if (IsDuplicateName(project.Name))
             {
                 return DUPLICATE_PROJECT_NAME_ERROR;
             }
@@ -48,12 +50,12 @@ namespace P5
             return NO_ERROR;
         }
 
-        List<Project> IProjectRepository.GetAll()
+        public List<Project> GetAll()
         {
             return projects;
         }
 
-        bool IProjectRepository.IsDuplicateName(string projectName)
+        public bool IsDuplicateName(string projectName)
         {
             foreach (Project proj in projects)
             {
@@ -63,7 +65,7 @@ namespace P5
             return false;
         }
 
-        string IProjectRepository.Modify(int projectId, Project project)
+        public string Modify(int projectId, Project project)
         {
             foreach (Project proj in projects)
             {
@@ -71,7 +73,7 @@ namespace P5
                 {
                     if (string.IsNullOrEmpty(project.Name))
                         return EMPTY_PROJECT_NAME_ERROR;
-                    else if (((IProjectRepository)this).IsDuplicateName(project.Name))
+                    else if (IsDuplicateName(project.Name))
                         return DUPLICATE_PROJECT_NAME_ERROR;
                     else if (project.Id != proj.Id)
                         return MODIFIED_PROJECT_ID_ERROR;
@@ -83,7 +85,7 @@ namespace P5
             return NO_PROJECT_FOUND_ERROR;
         }
 
-        string IProjectRepository.Remove(int projectId)
+        public string Remove(int projectId)
         {
             foreach(Project proj in projects)
             {
