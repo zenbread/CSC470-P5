@@ -62,7 +62,7 @@ namespace P5
             this.btnRemove.TabIndex = 3;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
-            this.btnRemove.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // labelProjectToRemove
             // 
@@ -86,7 +86,7 @@ namespace P5
             this.Controls.Add(this.label1);
             this.Name = "FormRemoveProject";
             this.Text = "Remove Project";
-            this.Load += new System.EventHandler(this.FormCreateProject_Load);
+            this.Load += new System.EventHandler(this.FormRemoveProject_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
