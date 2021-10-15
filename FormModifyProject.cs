@@ -23,14 +23,14 @@ namespace P5
         {
             Project tmp = new Project(parent.selected.Id, textBox.Text.Trim());
             string msg = parent.projectRepo.Modify(parent.selected.Id, tmp);
-           
+
             if (!string.IsNullOrEmpty(msg))
-            {
                 MessageBox.Show(msg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.Close();
-            }
-            MessageBox.Show("Project modified successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("Project modified successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             this.Close();
+
         }
     }
 }
