@@ -15,9 +15,8 @@ namespace P5
         private void SelectProjectForm_Load(object sender, EventArgs e)
         {
             CenterToParent();
-            FakeProjectRepository repo = new FakeProjectRepository();
-
-            List<Project> projects = repo.GetAll();
+            FormMain parent = (FormMain)this.Owner;
+            List<Project> projects = parent.projectRepo.GetAll();
 
             listBoxProjects.DataSource = projects;
         }

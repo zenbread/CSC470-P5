@@ -7,6 +7,7 @@ namespace P5
     {
         private AppUser appUser;
         private Project project;
+        public FakeProjectRepository projectRepo;
         public FormMain()
         {
             InitializeComponent();
@@ -14,9 +15,10 @@ namespace P5
 
         private void FormMain_Load(object sender, EventArgs e)
         {
+            projectRepo = new FakeProjectRepository();
             CenterToScreen();
             appUser = login();
-            project = projectSelect();
+            project = projectSelect(true);
 
             SetText();
         }
@@ -42,20 +44,24 @@ namespace P5
             return formLogin.ReturnUser;
         }
 
-        private Project projectSelect()
+        private Project projectSelect(bool first)
         {
             FormSelectProject formSelect = new FormSelectProject();
             DialogResult res;
 
             do
             {
-                res = formSelect.ShowDialog();
+                res = formSelect.ShowDialog(this);
                 if (res != DialogResult.OK)
                 {
+                    if (first)
+                    {
+                        formSelect.Dispose();
+                        this.Close();
+                        break;
+                    }
                     formSelect.Dispose();
-                    this.Close();
-                    break;
-
+                    return project;
                 }
             }
             while (res == DialogResult.OK && formSelect.ReturnProject == null);
@@ -71,8 +77,15 @@ namespace P5
 
         private void selectProjectMenu_Click(object sender, EventArgs e)
         {
-            project = projectSelect();
+            project = projectSelect(false);
             SetText();
+        }
+
+        private void createProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCreateProject formCreate = new FormCreateProject();
+
+            DialogResult res = formCreate.ShowDialog(this);
         }
     }
 }
