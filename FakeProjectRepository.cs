@@ -36,7 +36,7 @@ namespace P5
         public string Add(Project project, out int Id)
         {
             Id = -1;
-            if (string.IsNullOrEmpty(project.Name))
+            if (string.IsNullOrEmpty(project.Name) || string.IsNullOrWhiteSpace(project.Name))
             {
                 return EMPTY_PROJECT_NAME_ERROR;
             }

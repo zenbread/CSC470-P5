@@ -82,26 +82,27 @@ namespace P5
             // selectProjectMenu
             // 
             this.selectProjectMenu.Name = "selectProjectMenu";
-            this.selectProjectMenu.Size = new System.Drawing.Size(157, 22);
+            this.selectProjectMenu.Size = new System.Drawing.Size(180, 22);
             this.selectProjectMenu.Text = "Select Project";
             this.selectProjectMenu.Click += new System.EventHandler(this.selectProjectMenu_Click);
             // 
             // createProjectToolStripMenuItem
             // 
             this.createProjectToolStripMenuItem.Name = "createProjectToolStripMenuItem";
-            this.createProjectToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.createProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.createProjectToolStripMenuItem.Text = "Create Project";
+            this.createProjectToolStripMenuItem.Click += new System.EventHandler(this.createProjectToolStripMenuItem_Click);
             // 
             // modifyProjectToolStripMenuItem
             // 
             this.modifyProjectToolStripMenuItem.Name = "modifyProjectToolStripMenuItem";
-            this.modifyProjectToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.modifyProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.modifyProjectToolStripMenuItem.Text = "Modify Project";
             // 
             // removeProjectToolStripMenuItem
             // 
             this.removeProjectToolStripMenuItem.Name = "removeProjectToolStripMenuItem";
-            this.removeProjectToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.removeProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.removeProjectToolStripMenuItem.Text = "Remove Project";
             // 
             // issuesToolStripMenuItem
