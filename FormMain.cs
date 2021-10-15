@@ -8,6 +8,7 @@ namespace P5
         private AppUser appUser;
         private Project project;
         public FakeProjectRepository projectRepo;
+        public Project selected;
         public FormMain()
         {
             InitializeComponent();
@@ -86,6 +87,18 @@ namespace P5
             FormCreateProject formCreate = new FormCreateProject();
 
             DialogResult res = formCreate.ShowDialog(this);
+        }
+
+        private void removeProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            selected = projectSelect(false);
+            if (selected == project)
+            {
+                MessageBox.Show("Cannot remove your current session.", "Attention");
+                return;
+            }
+            FormRemoveProject formRemove = new FormRemoveProject();
+            DialogResult res = formRemove.ShowDialog(this);
         }
     }
 }
