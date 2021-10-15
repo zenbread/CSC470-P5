@@ -21,7 +21,7 @@ namespace P5
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-            Project tmp = new Project(textBox.Text.Trim());
+            Project tmp = new Project(parent.selected.Id, textBox.Text.Trim());
             string msg = parent.projectRepo.Modify(parent.selected.Id, tmp);
            
             if (!string.IsNullOrEmpty(msg))

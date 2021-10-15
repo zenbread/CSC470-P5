@@ -98,6 +98,7 @@ namespace P5
             this.modifyProjectToolStripMenuItem.Name = "modifyProjectToolStripMenuItem";
             this.modifyProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.modifyProjectToolStripMenuItem.Text = "Modify Project";
+            this.modifyProjectToolStripMenuItem.Click += new System.EventHandler(this.modifyProjectToolStripMenuItem_Click);
             // 
             // removeProjectToolStripMenuItem
             // 

@@ -86,7 +86,7 @@ namespace P5
         {
             FormCreateProject formCreate = new FormCreateProject();
 
-            DialogResult res = formCreate.ShowDialog(this);
+            formCreate.ShowDialog(this);
         }
 
         private void removeProjectToolStripMenuItem_Click(object sender, EventArgs e)
@@ -98,7 +98,19 @@ namespace P5
                 return;
             }
             FormRemoveProject formRemove = new FormRemoveProject();
-            DialogResult res = formRemove.ShowDialog(this);
+            formRemove.ShowDialog(this);
+        }
+
+        private void modifyProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            selected = projectSelect(false);
+            if (selected == project)
+            {
+                MessageBox.Show("Cannot modify your current session.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            FormModifyProject formModify = new FormModifyProject();
+            formModify.ShowDialog(this);
         }
     }
 }
