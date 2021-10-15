@@ -50,6 +50,12 @@
     <Compile Include="FakePreferenceRepository.cs" />
     <Compile Include="FakeProjectRepository.cs" />
     <Compile Include="FakeAppUserRepository.cs" />
+    <Compile Include="FormModifyProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormModifyProject.Designer.cs">
+      <DependentUpon>FormModifyProject.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRemoveProject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,9 @@
     <Compile Include="FormSelectProject.Designer.cs">
       <DependentUpon>FormSelectProject.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormModifyProject.resx">
+      <DependentUpon>FormModifyProject.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormRemoveProject.resx">
       <DependentUpon>FormRemoveProject.cs</DependentUpon>
     </EmbeddedResource>
